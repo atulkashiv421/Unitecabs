@@ -1,0 +1,3139 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f8f9fb;
+    color: #222;
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+    width: 100%;
+    height: 75px;
+
+    background: #0d1424;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 50px;
+
+    position: sticky;
+    top: 0;
+    z-index: 999;
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-bg {
+    width: 48px;
+    height: 48px;
+
+    background: #ffffff;
+
+    border-radius: 12px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-bg img {
+    width: 28px;
+}
+
+.brand {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.white {
+    color: #ffffff;
+}
+
+.orange {
+    color: #ff6247;
+}
+
+
+/* =====================================================
+   NAVIGATION MENU
+===================================================== */
+
+.nav-menu {
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+
+    gap: 28px;
+}
+
+.nav-menu li {
+    list-style: none;
+}
+
+.nav-menu a {
+    text-decoration: none;
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    font-weight: 500;
+
+    transition: 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: #ff6247;
+}
+
+
+/* =====================================================
+   LOGIN BUTTON
+===================================================== */
+
+.login-btn {
+    background: #ff6247;
+
+    padding: 10px 22px;
+
+    border-radius: 8px;
+
+    color: #ffffff !important;
+
+    transition: 0.3s ease;
+}
+
+.login-btn:hover {
+    background: #ffffff;
+
+    color: #111111 !important;
+}
+
+
+/* =====================================================
+   NAVBAR RESPONSIVE
+===================================================== */
+
+@media (max-width: 850px) {
+
+    .navbar {
+        padding: 0 25px;
+    }
+
+    .nav-menu {
+        gap: 18px;
+    }
+
+    .nav-menu a {
+        font-size: 14px;
+    }
+
+    .brand {
+        font-size: 25px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar {
+        height: auto;
+
+        padding: 15px 20px;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .nav-menu {
+        width: 100%;
+
+        display: flex;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+        gap: 12px;
+    }
+
+    .nav-menu a {
+        font-size: 13px;
+    }
+
+    .login-btn {
+        padding: 8px 15px;
+    }
+
+}
+
+/* =====================================================
+   HERO SECTION
+===================================================== */
+
+.hero {
+    width: 90%;
+
+    margin: 60px auto;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 40px;
+
+    flex-wrap: nowrap;
+}
+
+
+/* =====================================================
+   HERO LEFT
+===================================================== */
+
+.hero-left {
+    width: 48%;
+}
+
+.hero-left h1 {
+    font-size: 58px;
+
+    font-weight: 800;
+
+    line-height: 74px;
+
+    color: #111111;
+}
+
+.hero-left p {
+    margin: 25px 0;
+
+    color: #666666;
+
+    font-size: 20px;
+
+    line-height: 32px;
+}
+
+
+/* =====================================================
+   HERO RIGHT
+===================================================== */
+
+.hero-right {
+    width: 52%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+/* =====================================================
+   BOOKING BOX
+===================================================== */
+
+.booking-box {
+    width: 100%;
+
+    max-width: 520px;
+
+    background: #ffffff;
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.10);
+
+    transition: 0.35s ease;
+}
+
+.booking-box:hover {
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =====================================================
+   TRIP TABS
+===================================================== */
+
+.trip-tabs {
+    display: flex;
+
+    gap: 10px;
+
+    margin-bottom: 25px;
+
+    background: #eef2f7;
+
+    padding: 6px;
+
+    border-radius: 12px;
+}
+
+.trip-tabs button {
+    flex: 1;
+
+    height: 45px;
+
+    border: none;
+
+    background: transparent;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.trip-tabs button.active {
+    background: #ff6247;
+
+    color: #ffffff;
+}
+
+
+/* =====================================================
+   BOOKING FORM
+===================================================== */
+
+.booking-box form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 16px;
+}
+
+
+/* =====================================================
+   BOOKING INPUTS
+===================================================== */
+
+.booking-box input,
+.booking-box select {
+    width: 100%;
+
+    height: 50px;
+
+    border: 1px solid #dddddd;
+
+    border-radius: 10px;
+
+    padding: 0 15px;
+
+    font-size: 15px;
+
+    background: #ffffff;
+
+    transition: 0.3s ease;
+}
+
+.booking-box input:focus,
+.booking-box select:focus {
+    outline: none;
+
+    border-color: #ff6247;
+
+    box-shadow: 0 0 10px rgba(255, 98, 71, 0.20);
+}
+
+
+/* =====================================================
+   RETURN FIELDS
+===================================================== */
+
+.return-fields {
+    display: none;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+}
+
+
+/* =====================================================
+   BOOK BUTTON
+===================================================== */
+
+.book-btn {
+    width: 100%;
+
+    height: 52px;
+
+    border: none;
+
+    background: #ff6247;
+
+    color: #ffffff;
+
+    border-radius: 10px;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.35s ease;
+}
+
+.book-btn:hover {
+    background: #0d1424;
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =====================================================
+   HERO SLIDER
+===================================================== */
+
+.hero-slider {
+    width: 100%;
+
+    height: 430px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.hero-slider .slide {
+    position: absolute;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    opacity: 0;
+
+    transition: opacity 0.8s ease;
+}
+
+.hero-slider .slide.active {
+    opacity: 1;
+}
+
+
+/* =====================================================
+   HERO RESPONSIVE
+===================================================== */
+
+@media (max-width: 992px) {
+
+    .hero {
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 30px;
+    }
+
+    .hero-left,
+    .hero-right {
+        width: 100%;
+    }
+
+    .hero-left {
+        text-align: center;
+    }
+
+    .hero-left h1 {
+        font-size: 46px;
+
+        line-height: 1.3;
+    }
+
+    .hero-left p {
+        font-size: 18px;
+
+        line-height: 28px;
+    }
+
+    .booking-box {
+        max-width: 700px;
+    }
+
+    .hero-slider {
+        max-width: 700px;
+
+        height: 380px;
+    }
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .hero {
+        width: 92%;
+
+        margin: 40px auto;
+    }
+
+    .hero-left h1 {
+        font-size: 36px;
+    }
+
+    .hero-left p {
+        font-size: 16px;
+
+        line-height: 26px;
+    }
+
+    .booking-box {
+        padding: 20px;
+    }
+
+    .hero-slider {
+        height: 300px;
+
+        border-radius: 15px;
+    }
+
+    .booking-box input,
+    .booking-box select {
+        height: 46px;
+
+        font-size: 14px;
+    }
+
+    .trip-tabs button {
+        height: 42px;
+
+        font-size: 13px;
+    }
+
+    .book-btn {
+        height: 48px;
+
+        font-size: 15px;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .hero {
+        width: 94%;
+
+        margin: 30px auto;
+    }
+
+    .hero-left h1 {
+        font-size: 28px;
+
+        line-height: 1.3;
+    }
+
+    .hero-left p {
+        font-size: 14px;
+
+        line-height: 23px;
+
+        margin: 15px 0;
+    }
+
+    .booking-box {
+        padding: 15px;
+    }
+
+    .hero-slider {
+        height: 220px;
+
+        border-radius: 12px;
+    }
+
+    .booking-box input,
+    .booking-box select {
+        height: 42px;
+
+        font-size: 13px;
+    }
+
+    .trip-tabs {
+        gap: 5px;
+
+        padding: 5px;
+    }
+
+    .trip-tabs button {
+        height: 38px;
+
+        font-size: 12px;
+    }
+
+    .book-btn {
+        height: 45px;
+
+        font-size: 14px;
+    }
+
+}
+
+/* =====================================================
+   SECTION TITLE
+===================================================== */
+
+.section-title {
+    width: 100%;
+
+    text-align: center;
+
+    font-size: 38px;
+
+    font-weight: 700;
+
+    color: #0d1424;
+
+    margin: 70px 0 40px;
+}
+
+
+/* =====================================================
+   ROUTE GRID
+===================================================== */
+
+.route-grid {
+    width: 90%;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 30px;
+}
+
+
+/* =====================================================
+   ROUTE CARD
+===================================================== */
+
+.route-card {
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+
+    transition: 0.35s ease;
+}
+
+.route-card:hover {
+    transform: translateY(-10px);
+
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =====================================================
+   ROUTE IMAGE
+===================================================== */
+
+.route-card img {
+    width: 100%;
+
+    height: 220px;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: 0.5s ease;
+}
+
+.route-card:hover img {
+    transform: scale(1.08);
+}
+
+
+/* =====================================================
+   ROUTE CONTENT
+===================================================== */
+
+.route-content {
+    padding: 20px;
+}
+
+.route-content h3 {
+    color: #0d1424;
+
+    font-size: 22px;
+
+    margin-bottom: 10px;
+}
+
+.route-content p {
+    color: #666666;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    margin-bottom: 15px;
+}
+
+
+/* =====================================================
+   ROUTE BUTTON
+===================================================== */
+
+.route-btn {
+    display: inline-block;
+
+    margin-top: 5px;
+
+    padding: 12px 26px;
+
+    background: #ff6247;
+
+    color: #ffffff;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    transition: 0.35s ease;
+}
+
+.route-btn:hover {
+    background: #0d1424;
+
+    color: #ffffff;
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =====================================================
+   GENERAL BUTTON EFFECT
+===================================================== */
+
+button {
+    transition: 0.3s ease;
+}
+
+
+/* =====================================================
+   ROUTES RESPONSIVE — TABLET
+===================================================== */
+
+@media (max-width: 992px) {
+
+    .section-title {
+        font-size: 32px;
+
+        margin: 60px 0 35px;
+    }
+
+    .route-grid {
+        width: 90%;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 20px;
+    }
+
+    .route-card img {
+        height: 200px;
+    }
+
+}
+
+
+/* =====================================================
+   ROUTES RESPONSIVE — MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .section-title {
+        font-size: 28px;
+
+        margin: 50px 0 30px;
+    }
+
+    .route-grid {
+        width: 90%;
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .route-card img {
+        height: 190px;
+    }
+
+    .route-content {
+        padding: 18px;
+    }
+
+    .route-content h3 {
+        font-size: 19px;
+    }
+
+    .route-content p {
+        font-size: 14px;
+    }
+
+    .route-btn {
+        width: 100%;
+
+        text-align: center;
+
+        padding: 11px 20px;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .section-title {
+        font-size: 23px;
+
+        margin: 40px 0 25px;
+    }
+
+    .route-grid {
+        width: 94%;
+    }
+
+    .route-card img {
+        height: 160px;
+    }
+
+    .route-content h3 {
+        font-size: 18px;
+    }
+
+    .route-content p {
+        font-size: 13px;
+
+        line-height: 1.6;
+    }
+
+    .route-btn {
+        font-size: 14px;
+
+        padding: 11px;
+    }
+
+}
+
+/* =====================================================
+   BOOKING CONTACT / ENQUIRY PAGE
+===================================================== */
+
+
+/* =====================================================
+   MAIN CONTACT CONTAINER
+===================================================== */
+
+.contact-container {
+    width: 90%;
+
+    max-width: 1150px;
+
+    margin: 60px auto;
+
+    padding: 45px;
+
+    background: #ffffff;
+
+    border-radius: 16px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 50px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =====================================================
+   LEFT CONTACT CONTENT
+===================================================== */
+
+.contact-content {
+    flex: 1;
+
+    max-width: 580px;
+}
+
+.contact-title {
+    margin: 0 0 12px;
+
+    font-size: 38px;
+
+    font-weight: 700;
+
+    color: #0d1424;
+}
+
+.contact-subtitle {
+    margin: 0 0 30px;
+
+    font-size: 16px;
+
+    line-height: 26px;
+
+    color: #666666;
+}
+
+
+/* =====================================================
+   CONTACT CARD
+===================================================== */
+
+.contact-card {
+    width: 100%;
+
+    min-height: 115px;
+
+    padding: 20px;
+
+    margin-bottom: 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    text-decoration: none;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 10px;
+
+    transition: 0.25s ease;
+}
+
+.contact-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+
+    transform: translateY(-3px);
+}
+
+
+/* =====================================================
+   WHATSAPP CARD
+===================================================== */
+
+.whatsapp-card {
+    border-left: 5px solid #25d366;
+}
+
+
+/* =====================================================
+   EMAIL CARD
+===================================================== */
+
+.email-card {
+    border-left: 5px solid #ff6247;
+}
+
+
+/* =====================================================
+   CONTACT ICON
+===================================================== */
+
+.contact-icon {
+    width: 60px;
+
+    height: 60px;
+
+    min-width: 60px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 10px;
+
+    font-size: 30px;
+
+    color: #ffffff;
+}
+
+.whatsapp-icon {
+    background: #25d366;
+}
+
+.email-icon {
+    background: #ff6247;
+}
+
+
+/* =====================================================
+   CONTACT INFORMATION
+===================================================== */
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-info h3 {
+    margin: 0 0 6px;
+
+    font-size: 20px;
+
+    color: #0d1424;
+}
+
+.contact-info p {
+    margin: 0 0 7px;
+
+    font-size: 14px;
+
+    line-height: 21px;
+
+    color: #666666;
+}
+
+.contact-value {
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #0d1424;
+}
+
+
+/* =====================================================
+   NOTE / INFO BOX
+===================================================== */
+
+.note-box {
+    margin-top: 25px;
+
+    padding: 18px 20px;
+
+    background: #f3f4f6;
+
+    border-left: 4px solid #ff6247;
+
+    border-radius: 8px;
+}
+
+.note-box strong {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #0d1424;
+
+    font-size: 16px;
+}
+
+.note-box p {
+    margin: 0;
+
+    color: #666666;
+
+    font-size: 14px;
+
+    line-height: 23px;
+}
+
+
+/* =====================================================
+   CONFIRM SECTION
+===================================================== */
+
+.confirm-section {
+    margin-top: 25px;
+
+    text-align: center;
+}
+
+.confirm-btn {
+    display: block;
+
+    width: 100%;
+
+    padding: 15px 20px;
+
+    background: #ff6247;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    text-align: center;
+
+    transition: 0.3s ease;
+}
+
+.confirm-btn:hover {
+    background: #0d1424;
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.20);
+}
+
+.confirm-note {
+    margin: 13px 0 0;
+
+    font-size: 13px;
+
+    line-height: 21px;
+
+    color: #777777;
+}
+
+
+/* =====================================================
+   RIGHT SIDE POSTER
+===================================================== */
+
+.contact-poster {
+    flex: 1;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+.contact-poster img {
+    width: 100%;
+
+    max-width: 480px;
+
+    height: 500px;
+
+    object-fit: cover;
+
+    border-radius: 14px;
+
+    display: block;
+}
+
+
+/* =====================================================
+   CONTACT TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .contact-container {
+        padding: 30px;
+
+        gap: 30px;
+    }
+
+    .contact-title {
+        font-size: 32px;
+    }
+
+    .contact-poster img {
+        height: 450px;
+    }
+
+}
+
+
+/* =====================================================
+   CONTACT MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .contact-container {
+        width: 92%;
+
+        margin: 40px auto;
+
+        padding: 25px 20px;
+
+        flex-direction: column;
+
+        gap: 30px;
+    }
+
+    .contact-content {
+        width: 100%;
+
+        max-width: none;
+    }
+
+    .contact-title {
+        font-size: 28px;
+    }
+
+    .contact-subtitle {
+        font-size: 15px;
+
+        line-height: 24px;
+    }
+
+    .contact-card {
+        padding: 16px;
+
+        gap: 15px;
+    }
+
+    .contact-icon {
+        width: 50px;
+
+        height: 50px;
+
+        min-width: 50px;
+
+        font-size: 24px;
+    }
+
+    .contact-info h3 {
+        font-size: 18px;
+    }
+
+    .contact-info p {
+        font-size: 13px;
+    }
+
+    .contact-poster {
+        width: 100%;
+    }
+
+    .contact-poster img {
+        width: 100%;
+
+        height: auto;
+
+        max-width: none;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE CONTACT
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .contact-container {
+        width: 94%;
+
+        padding: 20px 15px;
+    }
+
+    .contact-title {
+        font-size: 25px;
+    }
+
+    .contact-card {
+        padding: 14px;
+    }
+
+    .contact-icon {
+        width: 45px;
+
+        height: 45px;
+
+        min-width: 45px;
+
+        font-size: 21px;
+    }
+
+    .contact-info h3 {
+        font-size: 16px;
+    }
+
+    .contact-info p,
+    .contact-value {
+        font-size: 12px;
+    }
+
+    .confirm-btn {
+        font-size: 15px;
+
+        padding: 13px;
+    }
+
+}
+
+/* =====================================================
+   PART 6 - UNITE CABS SERVICES PAGE
+===================================================== */
+
+
+/* =====================================================
+   SERVICES MAIN PAGE
+===================================================== */
+
+.services-page {
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 80px 6%;
+
+    background: #f5f7fa;
+
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   SERVICES HEADER
+===================================================== */
+
+.services-header {
+    width: 100%;
+    max-width: 750px;
+
+    margin: 0 auto 55px;
+
+    text-align: center;
+}
+
+.services-header h1 {
+    margin: 0 0 15px;
+
+    font-size: 44px;
+    font-weight: 800;
+
+    color: #0D1424;
+}
+
+.services-header p {
+    margin: 0;
+
+    font-size: 16px;
+    line-height: 1.8;
+
+    color: #666;
+}
+
+
+/* =====================================================
+   SERVICES CARDS CONTAINER
+===================================================== */
+
+.services-container {
+
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 30px;
+}
+
+
+/* =====================================================
+   SERVICE CARD
+===================================================== */
+
+.service-card {
+
+    background: #ffffff;
+
+    padding: 35px 30px;
+
+    min-height: 350px;
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0, 0, 0, 0.07);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* =====================================================
+   SERVICE CARD HOVER
+===================================================== */
+
+.service-card:hover {
+
+    transform:
+        translateY(-10px);
+
+    box-shadow:
+        0 20px 40px
+        rgba(0, 0, 0, 0.15);
+}
+
+
+/* =====================================================
+   SERVICE ICON
+===================================================== */
+
+.service-icon {
+
+    width: 75px;
+    height: 75px;
+
+    margin-bottom: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #fff3c4;
+
+    border-radius: 50%;
+
+    font-size: 35px;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+
+/* ICON HOVER */
+
+.service-card:hover .service-icon {
+
+    transform:
+        scale(1.1);
+
+    background:
+        #ff6247;
+}
+
+
+/* =====================================================
+   SERVICE TITLE
+===================================================== */
+
+.service-card h2 {
+
+    margin:
+        0 0 15px;
+
+    font-size: 21px;
+
+    font-weight: 700;
+
+    color: #0D1424;
+}
+
+
+/* =====================================================
+   SERVICE DESCRIPTION
+===================================================== */
+
+.service-card p {
+
+    margin:
+        0 0 25px;
+
+    color: #666;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+    flex-grow: 1;
+}
+
+
+/* =====================================================
+   SERVICE BUTTON
+===================================================== */
+
+.service-btn {
+
+    display: inline-block;
+
+    padding:
+        12px 30px;
+
+    background:
+        #ff6247;
+
+    color:
+        #ffffff;
+
+    font-size:
+        14px;
+
+    font-weight:
+        600;
+
+    text-decoration:
+        none;
+
+    border-radius:
+        8px;
+
+    transition:
+        all 0.3s ease;
+}
+
+
+/* BUTTON HOVER */
+
+.service-btn:hover {
+
+    background:
+        #0D1424;
+
+    color:
+        #ffffff;
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(0, 0, 0, 0.20);
+}
+
+
+/* =====================================================
+   TABLET RESPONSIVE
+===================================================== */
+
+@media (max-width: 950px) {
+
+    .services-page {
+
+        padding:
+            60px 5%;
+    }
+
+
+    .services-container {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap:
+            25px;
+    }
+
+
+    .services-header h1 {
+
+        font-size:
+            38px;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE RESPONSIVE
+===================================================== */
+
+@media (max-width: 650px) {
+
+    .services-page {
+
+        padding:
+            50px 20px;
+    }
+
+
+    .services-header {
+
+        margin-bottom:
+            35px;
+    }
+
+
+    .services-header h1 {
+
+        font-size:
+            32px;
+    }
+
+
+    .services-header p {
+
+        font-size:
+            14px;
+
+        line-height:
+            1.7;
+    }
+
+
+    .services-container {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            20px;
+    }
+
+
+    .service-card {
+
+        min-height:
+            auto;
+
+        padding:
+            30px 25px;
+    }
+
+
+    .service-card h2 {
+
+        font-size:
+            20px;
+    }
+
+
+    .service-card p {
+
+        font-size:
+            14px;
+    }
+
+
+    .service-btn {
+
+        width:
+            100%;
+
+        text-align:
+            center;
+
+        padding:
+            12px 20px;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 400px) {
+
+    .services-page {
+
+        padding:
+            40px 15px;
+    }
+
+
+    .services-header h1 {
+
+        font-size:
+            28px;
+    }
+
+
+    .services-header p {
+
+        font-size:
+            13px;
+    }
+
+
+    .service-card {
+
+        padding:
+            25px 20px;
+    }
+
+
+    .service-icon {
+
+        width:
+            65px;
+
+        height:
+            65px;
+
+        font-size:
+            30px;
+    }
+
+
+    .service-card h2 {
+
+        font-size:
+            19px;
+    }
+
+}
+
+/* =====================================================
+   PART 7 - FOOTER + FINAL RESPONSIVE FIX
+===================================================== */
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.site-footer {
+
+    width: 100%;
+
+    background: #0D1424;
+
+    color: #ffffff;
+
+    padding: 60px 6% 25px;
+
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   FOOTER CONTAINER
+===================================================== */
+
+.footer-container {
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        2fr 1fr 1fr;
+
+    gap: 50px;
+}
+
+
+/* =====================================================
+   FOOTER BRAND
+===================================================== */
+
+.footer-brand h2 {
+
+    margin: 0 0 15px;
+
+    font-size: 28px;
+
+    font-weight: 700;
+}
+
+.footer-brand p {
+
+    max-width: 400px;
+
+    margin: 0;
+
+    color: #cbd5e1;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   FOOTER TITLE
+===================================================== */
+
+.footer-column h3 {
+
+    margin:
+        0 0 20px;
+
+    font-size:
+        18px;
+
+    color:
+        #ffffff;
+}
+
+
+/* =====================================================
+   FOOTER LINKS
+===================================================== */
+
+.footer-links {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        12px;
+}
+
+.footer-links a {
+
+    color:
+        #cbd5e1;
+
+    text-decoration:
+        none;
+
+    font-size:
+        14px;
+
+    transition:
+        0.3s ease;
+}
+
+.footer-links a:hover {
+
+    color:
+        #ff6247;
+
+    transform:
+        translateX(5px);
+}
+
+
+/* =====================================================
+   FOOTER CONTACT
+===================================================== */
+
+.footer-contact p {
+
+    margin:
+        0 0 12px;
+
+    color:
+        #cbd5e1;
+
+    font-size:
+        14px;
+
+    line-height:
+        1.6;
+}
+
+
+/* =====================================================
+   FOOTER BOTTOM
+===================================================== */
+
+.footer-bottom {
+
+    max-width:
+        1200px;
+
+    margin:
+        45px auto 0;
+
+    padding-top:
+        20px;
+
+    border-top:
+        1px solid rgba(255,255,255,0.12);
+
+    text-align:
+        center;
+}
+
+.footer-bottom p {
+
+    margin:
+        0;
+
+    color:
+        #94a3b8;
+
+    font-size:
+        13px;
+}
+
+
+/* =====================================================
+   FOOTER SOCIAL ICONS
+===================================================== */
+
+.footer-social {
+
+    display:
+        flex;
+
+    gap:
+        12px;
+
+    margin-top:
+        20px;
+}
+
+.footer-social a {
+
+    width:
+        40px;
+
+    height:
+        40px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    background:
+        rgba(255,255,255,0.08);
+
+    color:
+        #ffffff;
+
+    border-radius:
+        50%;
+
+    text-decoration:
+        none;
+
+    transition:
+        0.3s ease;
+}
+
+.footer-social a:hover {
+
+    background:
+        #ff6247;
+
+    transform:
+        translateY(-3px);
+}
+
+
+/* =====================================================
+   FINAL SERVICES FIX
+===================================================== */
+
+.services-page {
+
+    position:
+        relative;
+
+    z-index:
+        1;
+}
+
+.services-container {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+}
+
+.service-card {
+
+    position:
+        relative;
+
+    z-index:
+        3;
+}
+
+
+/* =====================================================
+   GENERAL IMAGE FIX
+===================================================== */
+
+img {
+
+    max-width:
+        100%;
+
+    display:
+        block;
+}
+
+
+/* =====================================================
+   GENERAL BUTTON FIX
+===================================================== */
+
+button,
+a {
+
+    -webkit-tap-highlight-color:
+        transparent;
+}
+
+
+/* =====================================================
+   TABLET FOOTER
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .footer-container {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap:
+            35px;
+    }
+
+    .footer-brand {
+
+        grid-column:
+            1 / -1;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE FOOTER
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .site-footer {
+
+        padding:
+            45px 20px 20px;
+    }
+
+
+    .footer-container {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            30px;
+
+        text-align:
+            center;
+    }
+
+
+    .footer-brand {
+
+        grid-column:
+            auto;
+    }
+
+
+    .footer-brand p {
+
+        max-width:
+            100%;
+    }
+
+
+    .footer-links {
+
+        align-items:
+            center;
+    }
+
+
+    .footer-social {
+
+        justify-content:
+            center;
+    }
+
+
+    .footer-bottom {
+
+        margin-top:
+            30px;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 400px) {
+
+    .footer-brand h2 {
+
+        font-size:
+            24px;
+    }
+
+
+    .footer-column h3 {
+
+        font-size:
+            17px;
+    }
+
+
+    .footer-links a,
+    .footer-contact p {
+
+        font-size:
+            13px;
+    }
+
+}
+
+/* =====================================================
+   PROFESSIONAL STATS DASHBOARD
+===================================================== */
+
+.stats-dashboard {
+
+    width: 100%;
+
+    padding: 70px 6%;
+
+    background: #f8f9fb;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =====================================================
+   DASHBOARD HEADER
+===================================================== */
+
+.stats-header {
+
+    max-width: 750px;
+
+    margin: 0 auto 50px;
+
+    text-align: center;
+
+}
+
+
+.stats-header h2 {
+
+    margin: 0 0 15px;
+
+    font-size: 38px;
+
+    font-weight: 700;
+
+    color: #0D1424;
+
+}
+
+
+.stats-header p {
+
+    margin: 0;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    color: #666;
+
+}
+
+
+/* =====================================================
+   STATS GRID
+===================================================== */
+
+.stats-grid {
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 25px;
+
+}
+
+
+/* =====================================================
+   STAT CARD
+===================================================== */
+
+.stat-card {
+
+    background: #ffffff;
+
+    padding: 30px 20px;
+
+    text-align: center;
+
+    border-radius: 16px;
+
+    border: 1px solid #eeeeee;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0, 0, 0, 0.07);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+/* =====================================================
+   CARD HOVER
+===================================================== */
+
+.stat-card:hover {
+
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(0, 0, 0, 0.12);
+
+}
+
+
+/* =====================================================
+   STAT ICON
+===================================================== */
+
+.stat-icon {
+
+    width: 65px;
+
+    height: 65px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #fff3ef;
+
+    border-radius: 50%;
+
+    font-size: 30px;
+
+}
+
+
+/* =====================================================
+   STAT NUMBER
+===================================================== */
+
+.stat-number {
+
+    margin-bottom: 10px;
+
+    font-size: 34px;
+
+    font-weight: 800;
+
+    color: #ff6247;
+
+}
+
+
+/* =====================================================
+   STAT TITLE
+===================================================== */
+
+.stat-card h3 {
+
+    margin: 0 0 10px;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    color: #0D1424;
+
+}
+
+
+/* =====================================================
+   STAT DESCRIPTION
+===================================================== */
+
+.stat-card p {
+
+    margin: 0;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    color: #777;
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 950px) {
+
+    .stats-dashboard {
+
+        padding: 60px 5%;
+
+    }
+
+
+    .stats-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 20px;
+
+    }
+
+
+    .stats-header h2 {
+
+        font-size: 32px;
+
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .stats-dashboard {
+
+        padding: 50px 20px;
+
+    }
+
+
+    .stats-header {
+
+        margin-bottom: 35px;
+
+    }
+
+
+    .stats-header h2 {
+
+        font-size: 28px;
+
+    }
+
+
+    .stats-header p {
+
+        font-size: 14px;
+
+    }
+
+
+    .stats-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+
+    }
+
+
+    .stat-card {
+
+        padding: 28px 20px;
+
+    }
+
+
+    .stat-number {
+
+        font-size: 30px;
+
+    }
+
+}
+
+/* =====================================================
+   ABOUT UNITE CABS SECTION
+===================================================== */
+
+.about-section {
+    width: 100%;
+    padding: 90px 6%;
+    background: #ffffff;
+}
+
+
+/* =====================================================
+   ABOUT CONTAINER
+===================================================== */
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 70px;
+}
+
+
+/* =====================================================
+   ABOUT CONTENT
+===================================================== */
+
+.about-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+
+.about-label {
+    display: inline-block;
+
+    margin-bottom: 15px;
+
+    color: #ff6247;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+.about-content h2 {
+    margin: 0 0 20px;
+
+    font-size: 42px;
+
+    line-height: 1.25;
+
+    color: #0d1424;
+
+    font-weight: 800;
+}
+
+
+.about-content h2 span {
+    color: #ff6247;
+}
+
+
+.about-content > p {
+    margin-bottom: 18px;
+
+    color: #666;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   ABOUT FEATURES
+===================================================== */
+
+.about-features {
+    margin-top: 30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+
+.about-feature {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.about-feature-icon {
+    width: 42px;
+    height: 42px;
+
+    min-width: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #ff6247;
+
+    color: #ffffff;
+
+    border-radius: 50%;
+
+    font-size: 20px;
+
+    font-weight: 700;
+}
+
+
+.about-feature h3 {
+    margin: 0 0 4px;
+
+    color: #0d1424;
+
+    font-size: 17px;
+}
+
+
+.about-feature p {
+    margin: 0;
+
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   ABOUT BUTTON
+===================================================== */
+
+.about-btn {
+    display: inline-block;
+
+    margin-top: 35px;
+
+    padding: 14px 28px;
+
+    background: #ff6247;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    transition: all 0.3s ease;
+}
+
+
+.about-btn:hover {
+    background: #0d1424;
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =====================================================
+   ABOUT IMAGE
+===================================================== */
+
+.about-image {
+    flex: 1;
+
+    max-width: 500px;
+
+    position: relative;
+}
+
+
+.about-image img {
+    width: 100%;
+
+    height: 500px;
+
+    object-fit: cover;
+
+    display: block;
+
+    border-radius: 20px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =====================================================
+   IMAGE PLACEHOLDER
+===================================================== */
+
+.about-placeholder {
+    width: 100%;
+
+    height: 500px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #0d1424;
+
+    border-radius: 20px;
+
+    font-size: 100px;
+}
+
+
+/* =====================================================
+   ABOUT BADGE
+===================================================== */
+
+.about-badge {
+    position: absolute;
+
+    bottom: 25px;
+
+    left: -25px;
+
+    width: 180px;
+
+    padding: 20px;
+
+    background: #ffffff;
+
+    border-radius: 12px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+    text-align: center;
+}
+
+
+.about-badge strong {
+    display: block;
+
+    color: #ff6247;
+
+    font-size: 28px;
+
+    font-weight: 800;
+}
+
+
+.about-badge span {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #555;
+
+    font-size: 13px;
+
+    font-weight: 500;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .about-section {
+        padding: 70px 5%;
+    }
+
+    .about-container {
+        gap: 40px;
+    }
+
+    .about-content h2 {
+        font-size: 34px;
+    }
+
+    .about-image img,
+    .about-placeholder {
+        height: 430px;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .about-section {
+        padding: 60px 20px;
+    }
+
+    .about-container {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 50px;
+    }
+
+    .about-content {
+        max-width: none;
+    }
+
+    .about-content h2 {
+        font-size: 30px;
+    }
+
+    .about-content > p {
+        font-size: 15px;
+    }
+
+    .about-image {
+        max-width: none;
+    }
+
+    .about-image img,
+    .about-placeholder {
+        height: 350px;
+    }
+
+    .about-badge {
+        left: 20px;
+
+        bottom: 20px;
+    }
+
+    .about-btn {
+        width: 100%;
+
+        text-align: center;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .about-section {
+        padding: 50px 15px;
+    }
+
+    .about-content h2 {
+        font-size: 26px;
+    }
+
+    .about-label {
+        font-size: 12px;
+    }
+
+    .about-image img,
+    .about-placeholder {
+        height: 280px;
+    }
+
+    .about-badge {
+        width: 150px;
+
+        padding: 15px;
+    }
+
+    .about-badge strong {
+        font-size: 24px;
+    }
+
+}
+
+/* =====================================================
+   BOOKING FORM CSS
+===================================================== */
+
+.booking-box {
+    width: 100%;
+    max-width: 480px;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.12);
+
+    margin-top: 25px;
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   TRIP TABS
+===================================================== */
+
+.trip-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.trip-tabs button {
+    border: none;
+    padding: 13px 15px;
+    border-radius: 8px;
+    background: #f1f1f1;
+    color: #333;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.trip-tabs button:hover {
+    background: #e5e5e5;
+}
+
+.trip-tabs button.active {
+    background: #111827;
+    color: #ffffff;
+}
+
+
+/* =====================================================
+   BOOKING FORM
+===================================================== */
+
+.booking-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+
+/* =====================================================
+   INPUT FIELDS
+===================================================== */
+
+.booking-box input {
+    width: 100%;
+    height: 50px;
+    padding: 0 15px;
+
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+
+    outline: none;
+
+    font-size: 15px;
+    color: #333;
+    background: #ffffff;
+
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+.booking-box input:focus {
+    border-color: #111827;
+
+    box-shadow:
+        0 0 0 3px rgba(17, 24, 39, 0.08);
+}
+
+
+/* =====================================================
+   RETURN FIELDS
+===================================================== */
+
+.return-fields {
+    display: none;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.return-fields input {
+    width: 100%;
+}
+
+
+/* =====================================================
+   LOCATION SUGGESTIONS
+===================================================== */
+
+.location-suggestions {
+    display: none;
+
+    width: 100%;
+    max-height: 200px;
+
+    overflow-y: auto;
+
+    background: #ffffff;
+
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+
+    margin-top: -8px;
+
+    position: relative;
+    z-index: 100;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.10);
+}
+
+.location-suggestion {
+    padding: 12px 15px;
+
+    font-size: 14px;
+    color: #333;
+
+    cursor: pointer;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+.location-suggestion:last-child {
+    border-bottom: none;
+}
+
+.location-suggestion:hover {
+    background: #f5f5f5;
+}
+
+.location-loading,
+.no-location {
+    padding: 12px 15px;
+
+    font-size: 14px;
+    color: #666;
+}
+
+
+/* =====================================================
+   BOOK CAB BUTTON
+===================================================== */
+
+.book-btn {
+    width: 100%;
+    height: 52px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #111827;
+    color: #ffffff;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    margin-top: 5px;
+}
+
+.book-btn:hover {
+    background: #000000;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =====================================================
+   MOBILE BOOKING FORM
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .booking-box {
+        width: 100%;
+        padding: 18px;
+        margin-top: 20px;
+    }
+
+    .trip-tabs {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .trip-tabs button {
+        padding: 11px 8px;
+        font-size: 13px;
+    }
+
+    .return-fields {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .booking-box input {
+        height: 48px;
+        font-size: 14px;
+    }
+
+    .book-btn {
+        height: 50px;
+        font-size: 15px;
+    }
+}
+
+/* =====================================================
+   MOBILE - SLIDER ABOVE CAB RIDE FORM
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .hero {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* SLIDER FIRST */
+    .hero-right {
+        order: 1;
+        width: 100%;
+    }
+
+    /* HEADING + CAB FORM SECOND */
+    .hero-left {
+        order: 2;
+        width: 100%;
+    }
+
+    .hero-slider {
+        width: 100%;
+        height: 300px;
+    }
+}
