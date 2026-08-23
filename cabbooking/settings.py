@@ -8,8 +8,7 @@ SECRET_KEY = "django-insecure-your-secret-key"
 
 DEBUG = False
 
-ALLOWED_HOSTS = ["unitecabs.com", "www.unitecabs.com"]
-
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 # Installed Apps
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -93,7 +92,7 @@ USE_TZ = True
 
 # Static Files
 STATIC_URL = "/static/"
-STATIC_ROOT = BASE_DIR / "staticfiles"
+
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
