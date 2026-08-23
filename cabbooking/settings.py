@@ -1,20 +1,12 @@
 from pathlib import Path
 
-
-# =========================================================
-# BASE DIRECTORY
-# =========================================================
-
+# Base Directory
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# =========================================================
-# SECURITY
-# =========================================================
-
+# Security
 SECRET_KEY = "django-insecure-your-secret-key"
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     "localhost",
@@ -24,11 +16,7 @@ ALLOWED_HOSTS = [
     ".onrender.com",
 ]
 
-
-# =========================================================
-# INSTALLED APPS
-# =========================================================
-
+# Installed Apps
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -46,17 +34,9 @@ INSTALLED_APPS = [
     "payments",
 ]
 
-
-# =========================================================
-# MIDDLEWARE
-# =========================================================
-
+# Middleware
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-
-    # WhiteNoise - Production Static Files
-    "whitenoise.middleware.WhiteNoiseMiddleware",
-
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -65,28 +45,14 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-
-# =========================================================
-# ROOT URL
-# =========================================================
-
 ROOT_URLCONF = "cabbooking.urls"
 
-
-# =========================================================
-# TEMPLATES
-# =========================================================
-
+# Templates
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-
-        "DIRS": [
-            BASE_DIR / "templates",
-        ],
-
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
-
         "OPTIONS": {
             "context_processors": [
                 "django.template.context_processors.request",
@@ -97,18 +63,9 @@ TEMPLATES = [
     },
 ]
 
-
-# =========================================================
-# WSGI
-# =========================================================
-
 WSGI_APPLICATION = "cabbooking.wsgi.application"
 
-
-# =========================================================
-# DATABASE
-# =========================================================
-
+# Database
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
@@ -116,11 +73,7 @@ DATABASES = {
     }
 }
 
-
-# =========================================================
-# PASSWORD VALIDATION
-# =========================================================
-
+# Password Validation
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
@@ -136,59 +89,27 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# =========================================================
-# LANGUAGE & TIME
-# =========================================================
-
+# Language
 LANGUAGE_CODE = "en-us"
 
 TIME_ZONE = "Asia/Kolkata"
 
 USE_I18N = True
-
 USE_TZ = True
 
-
-# =========================================================
-# STATIC FILES
-# =========================================================
-
+# Static Files
 STATIC_URL = "/static/"
-
 STATIC_ROOT = BASE_DIR / "staticfiles"
-
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-
-# =========================================================
-# WHITENOISE STATIC FILE STORAGE
-# =========================================================
-
-STORAGES = {
-    "default": {
-        "BACKEND": "django.core.files.storage.FileSystemStorage",
-    },
-
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-}
-
-
-# =========================================================
-# MEDIA FILES
-# =========================================================
-
+# Media Files (Admin Upload Images)
 MEDIA_URL = "/media/"
-
 MEDIA_ROOT = BASE_DIR / "media"
 
-
-# =========================================================
-# DEFAULT PRIMARY KEY
-# =========================================================
-
+# Default Primary Key
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
