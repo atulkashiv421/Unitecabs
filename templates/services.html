@@ -1,0 +1,664 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Services | Unite Cabs</title>
+
+    <link rel="stylesheet"
+          href="{% static 'css/style.css' %}?v=20">
+
+
+    <style>
+
+        /* =====================================================
+           SERVICES PAGE
+        ===================================================== */
+
+        .services-page {
+
+            width: 100%;
+            min-height: calc(100vh - 75px);
+
+            padding: 80px 6%;
+
+            background: #f5f7fa;
+
+            box-sizing: border-box;
+
+        }
+
+
+        /* =====================================================
+           SERVICES HEADER
+        ===================================================== */
+
+        .services-header {
+
+            width: 100%;
+            max-width: 750px;
+
+            margin: 0 auto 55px;
+
+            text-align: center;
+
+        }
+
+
+        .services-header h1 {
+
+            margin: 0 0 15px;
+
+            font-size: 44px;
+
+            font-weight: 800;
+
+            color: #0D1424;
+
+        }
+
+
+        .services-header p {
+
+            margin: 0;
+
+            font-size: 16px;
+
+            line-height: 1.8;
+
+            color: #666;
+
+        }
+
+
+        /* =====================================================
+           SERVICES CONTAINER
+        ===================================================== */
+
+        .services-container {
+
+            width: 100%;
+
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 30px;
+
+        }
+
+
+        /* =====================================================
+           SERVICE CARD
+        ===================================================== */
+
+        .service-card {
+
+            background: #ffffff;
+
+            padding: 35px 30px;
+
+            min-height: 350px;
+
+            border-radius: 18px;
+
+            text-align: center;
+
+            border: 1px solid #e5e7eb;
+
+            box-shadow:
+                0 10px 30px
+                rgba(0, 0, 0, 0.07);
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+
+        }
+
+
+        /* =====================================================
+           CARD HOVER
+        ===================================================== */
+
+        .service-card:hover {
+
+            transform: translateY(-10px);
+
+            box-shadow:
+                0 20px 40px
+                rgba(0, 0, 0, 0.15);
+
+        }
+
+
+        /* =====================================================
+           SERVICE ICON
+        ===================================================== */
+
+        .service-icon {
+
+            width: 75px;
+
+            height: 75px;
+
+            margin-bottom: 22px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #fff3c4;
+
+            border-radius: 50%;
+
+            font-size: 35px;
+
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease;
+
+        }
+
+
+        /* ICON HOVER */
+
+        .service-card:hover .service-icon {
+
+            transform: scale(1.1);
+
+            background: #ff6247;
+
+        }
+
+
+        /* =====================================================
+           SERVICE TITLE
+        ===================================================== */
+
+        .service-card h2 {
+
+            margin: 0 0 15px;
+
+            font-size: 21px;
+
+            font-weight: 700;
+
+            color: #0D1424;
+
+        }
+
+
+        /* =====================================================
+           SERVICE DESCRIPTION
+        ===================================================== */
+
+        .service-card p {
+
+            margin: 0 0 25px;
+
+            color: #666;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+
+            flex-grow: 1;
+
+        }
+
+
+        /* =====================================================
+           BOOK NOW BUTTON
+        ===================================================== */
+
+        .service-btn {
+
+            display: inline-block;
+
+            padding: 12px 30px;
+
+            background: #ff6247;
+
+            color: #ffffff;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            transition: all 0.3s ease;
+
+        }
+
+
+        /* BUTTON HOVER */
+
+        .service-btn:hover {
+
+            background: #0D1424;
+
+            color: #ffffff;
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 8px 20px
+                rgba(0, 0, 0, 0.20);
+
+        }
+
+
+        /* =====================================================
+           TABLET
+        ===================================================== */
+
+        @media (max-width: 950px) {
+
+            .services-page {
+
+                padding: 60px 5%;
+
+            }
+
+
+            .services-container {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+                gap: 25px;
+
+            }
+
+
+            .services-header h1 {
+
+                font-size: 38px;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 650px) {
+
+            .services-page {
+
+                padding: 50px 20px;
+
+            }
+
+
+            .services-header {
+
+                margin-bottom: 35px;
+
+            }
+
+
+            .services-header h1 {
+
+                font-size: 32px;
+
+            }
+
+
+            .services-header p {
+
+                font-size: 14px;
+
+                line-height: 1.7;
+
+            }
+
+
+            .services-container {
+
+                grid-template-columns: 1fr;
+
+                gap: 20px;
+
+            }
+
+
+            .service-card {
+
+                min-height: auto;
+
+                padding: 30px 25px;
+
+            }
+
+
+            .service-card h2 {
+
+                font-size: 20px;
+
+            }
+
+
+            .service-card p {
+
+                font-size: 14px;
+
+            }
+
+
+            .service-btn {
+
+                width: 100%;
+
+                text-align: center;
+
+                padding: 12px 20px;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           SMALL MOBILE
+        ===================================================== */
+
+        @media (max-width: 400px) {
+
+            .services-page {
+
+                padding: 40px 15px;
+
+            }
+
+
+            .services-header h1 {
+
+                font-size: 28px;
+
+            }
+
+
+            .services-header p {
+
+                font-size: 13px;
+
+            }
+
+
+            .service-card {
+
+                padding: 25px 20px;
+
+            }
+
+
+            .service-icon {
+
+                width: 65px;
+
+                height: 65px;
+
+                font-size: 30px;
+
+            }
+
+
+            .service-card h2 {
+
+                font-size: 19px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+   
+
+
+    <!-- =====================================================
+         SERVICES SECTION
+    ===================================================== -->
+
+    <section class="services-page">
+
+
+        <div class="services-header">
+
+            <h1>
+                Our Services
+            </h1>
+
+            <p>
+
+                At Unite Cabs, we provide safe, comfortable,
+                and reliable cab services for all your travel needs.
+
+            </p>
+
+        </div>
+
+
+        <div class="services-container">
+
+
+            <!-- LOCAL CAB -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🚕
+                </div>
+
+                <h2>
+                    Local Cab Booking
+                </h2>
+
+                <p>
+
+                    Book a cab for convenient and comfortable
+                    travel within the city for daily travel,
+                    shopping, and office visits.
+
+                </p>
+
+                <a href="{% url 'home' %}#booking"
+                   class="service-btn">
+
+                    Book Now
+
+                </a>
+
+            </div>
+
+
+            <!-- AIRPORT TRANSFER -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    ✈️
+                </div>
+
+                <h2>
+                    Airport Transfer
+                </h2>
+
+                <p>
+
+                    Enjoy reliable airport pickup and drop
+                    services with comfortable rides and
+                    on-time transportation.
+
+                </p>
+
+                <a href="{% url 'home' %}#booking"
+                   class="service-btn">
+
+                    Book Now
+
+                </a>
+
+            </div>
+
+
+            <!-- OUTSTATION -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🛣️
+                </div>
+
+                <h2>
+                    Outstation Cab
+                </h2>
+
+                <p>
+
+                    Travel comfortably from one city to another
+                    with our reliable outstation cab services
+                    for long-distance journeys.
+
+                </p>
+
+                <a href="{% url 'home' %}#booking"
+                   class="service-btn">
+
+                    Book Now
+
+                </a>
+
+            </div>
+
+
+            <!-- ONE WAY -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    ↔️
+                </div>
+
+                <h2>
+                    One-Way Cab
+                </h2>
+
+                <p>
+
+                    Book an affordable one-way cab for your
+                    intercity journey without paying for
+                    unnecessary return travel.
+
+                </p>
+
+                <a href="{% url 'home' %}#booking"
+                   class="service-btn">
+
+                    Book Now
+
+                </a>
+
+            </div>
+
+
+            <!-- ROUND TRIP -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🔄
+                </div>
+
+                <h2>
+                    Round Trip
+                </h2>
+
+                <p>
+
+                    Plan your journey with convenient round-trip
+                    cab services for family trips, vacations,
+                    and business travel.
+
+                </p>
+
+                <a href="{% url 'home' %}#booking"
+                   class="service-btn">
+
+                    Book Now
+
+                </a>
+
+            </div>
+
+
+            <!-- CORPORATE TRAVEL -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    💼
+                </div>
+
+                <h2>
+                    Corporate Travel
+                </h2>
+
+                <p>
+
+                    Reliable transportation solutions for
+                    companies, employees, meetings, and
+                    professional business travel.
+
+                </p>
+
+                <a href="{% url 'home' %}#booking"
+                   class="service-btn">
+
+                    Book Now
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+</body>
+
+</html>

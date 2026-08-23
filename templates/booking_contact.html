@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- LEFT SIDE -->
+<div class="contact-content">
+
+    <h1 class="contact-title">
+        Booking Enquiry
+    </h1>
+
+    <p class="contact-subtitle">
+        Your booking is almost confirmed. Please review the information
+        below and confirm your booking.
+    </p>
+
+
+    <!-- WHATSAPP CARD -->
+
+    <a
+        href="https://wa.me/{{ contact.whatsapp_number }}"
+        target="_blank"
+        class="contact-card whatsapp-card"
+    >
+
+        <div class="contact-icon whatsapp-icon">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+
+        <div class="contact-info">
+
+            <h3>WhatsApp Support</h3>
+
+            <p>
+                If you have any problem or need assistance,
+                please contact us directly on WhatsApp.
+            </p>
+
+            <span class="contact-value">
+                {{ contact.whatsapp_number }}
+            </span>
+
+        </div>
+
+    </a>
+
+
+    <!-- EMAIL CARD -->
+
+    <a
+        href="mailto:{{ contact.email }}"
+        class="contact-card email-card"
+    >
+
+        <div class="contact-icon email-icon">
+            <i class="fas fa-envelope"></i>
+        </div>
+
+        <div class="contact-info">
+
+            <h3>Email Support</h3>
+
+            <p>
+                If you have any questions or need assistance,
+                you can contact us through email.
+            </p>
+
+            <span class="contact-value">
+                {{ contact.email }}
+            </span>
+
+        </div>
+
+    </a>
+
+
+    <!-- ADMIN INFO MESSAGE -->
+
+    <div class="note-box">
+
+        <strong>Important Information</strong>
+
+        <p>
+            {{ contact.info_message }}
+        </p>
+
+    </div>
+
+
+    <!-- CONFIRM BOOKING -->
+
+    <div class="confirm-section">
+
+        <a
+            href="/booking-success/"
+            class="confirm-btn"
+        >
+            Confirm Booking
+        </a>
+
+        <p class="confirm-note">
+            If you confirm your booking directly,
+            your booking will be confirmed successfully.
+            If you face any problem, you can contact us
+            through WhatsApp or email.
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- RIGHT SIDE POSTER -->
+
+<div class="contact-poster">
+
+    <img
+        src="{% static 'images/contact.jpg' %}"
+        alt="Booking Enquiry"
+    >
+
+</div>
+
+{% endblock %}

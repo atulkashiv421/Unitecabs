@@ -1,0 +1,626 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Unite Cabs</title>
+
+<link rel="stylesheet"
+      href="{% static 'css/main.css' %}?v=20">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+====================================================== -->
+
+{% include 'navbar.html' %}
+
+
+
+<!-- =====================================================
+     HERO SECTION
+====================================================== -->
+
+<section class="hero">
+
+    {% block content %}
+    {% endblock %}
+
+</section>
+
+
+
+<script>
+
+/* =====================================================
+   PAGE LOAD
+===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+
+
+        /* =================================================
+           ONE WAY / ROUND TRIP
+        ================================================= */
+
+
+        const oneBtn =
+            document.getElementById("oneBtn");
+
+        const roundBtn =
+            document.getElementById("roundBtn");
+
+        const returnFields =
+            document.getElementById("returnFields");
+
+        const tripType =
+            document.getElementById("tripType");
+
+
+        /*
+         * Check elements exist
+         */
+
+        if (
+            oneBtn &&
+            roundBtn &&
+            returnFields
+        ) {
+
+
+            /* =============================================
+               DEFAULT ONE WAY
+            ============================================= */
+
+            returnFields.style.display =
+                "none";
+
+            oneBtn.classList.add(
+                "active"
+            );
+
+            if (tripType) {
+
+                tripType.value =
+                    "One Way";
+
+            }
+
+
+
+            /* =============================================
+               ONE WAY BUTTON
+            ============================================= */
+
+            oneBtn.addEventListener(
+                "click",
+                function () {
+
+
+                    oneBtn.classList.add(
+                        "active"
+                    );
+
+                    roundBtn.classList.remove(
+                        "active"
+                    );
+
+
+                    returnFields.style.display =
+                        "none";
+
+
+                    if (tripType) {
+
+                        tripType.value =
+                            "One Way";
+
+                    }
+
+                }
+            );
+
+
+
+            /* =============================================
+               ROUND TRIP BUTTON
+            ============================================= */
+
+            roundBtn.addEventListener(
+                "click",
+                function () {
+
+
+                    roundBtn.classList.add(
+                        "active"
+                    );
+
+                    oneBtn.classList.remove(
+                        "active"
+                    );
+
+
+                    returnFields.style.display =
+                        "grid";
+
+
+                    if (tripType) {
+
+                        tripType.value =
+                            "Round Trip";
+
+                    }
+
+                }
+            );
+
+        }
+
+
+
+        /* =================================================
+           HERO SLIDER
+        ================================================= */
+
+
+        const slides =
+            document.querySelectorAll(
+                ".slide"
+            );
+
+
+        let currentSlide = 0;
+
+
+        if (
+            slides.length > 0 &&
+            !document.querySelector(
+                ".slide.active"
+            )
+        ) {
+
+            slides[0].classList.add(
+                "active"
+            );
+
+        }
+
+
+        if (
+            slides.length > 1
+        ) {
+
+            setInterval(
+                function () {
+
+
+                    slides[
+                        currentSlide
+                    ].classList.remove(
+                        "active"
+                    );
+
+
+                    currentSlide++;
+
+
+                    if (
+                        currentSlide >=
+                        slides.length
+                    ) {
+
+                        currentSlide = 0;
+
+                    }
+
+
+                    slides[
+                        currentSlide
+                    ].classList.add(
+                        "active"
+                    );
+
+
+                },
+                3000
+            );
+
+        }
+
+
+
+        /* =================================================
+           LOCATION SEARCH
+           INDIA ONLY
+        ================================================= */
+
+
+        const pickupInput =
+            document.getElementById(
+                "pickup"
+            );
+
+
+        const dropInput =
+            document.getElementById(
+                "drop"
+            );
+
+
+        const pickupSuggestions =
+            document.getElementById(
+                "pickupSuggestions"
+            );
+
+
+        const dropSuggestions =
+            document.getElementById(
+                "dropSuggestions"
+            );
+
+
+
+        /* =================================================
+           SEARCH LOCATION FUNCTION
+        ================================================= */
+
+
+        function searchLocation(
+            input,
+            suggestionBox
+        ) {
+
+
+            if (
+                !input ||
+                !suggestionBox
+            ) {
+
+                return;
+
+            }
+
+
+
+            input.addEventListener(
+                "input",
+                async function () {
+
+
+                    const query =
+                        input.value.trim();
+
+
+
+                    /* =====================================
+                       MINIMUM 3 CHARACTERS
+                    ===================================== */
+
+                    if (
+                        query.length < 3
+                    ) {
+
+                        suggestionBox.innerHTML =
+                            "";
+
+                        suggestionBox.style.display =
+                            "none";
+
+                        return;
+
+                    }
+
+
+
+                    /* =====================================
+                       LOADING
+                    ===================================== */
+
+                    suggestionBox.innerHTML =
+                        "<div class='location-loading'>" +
+                        "Searching..." +
+                        "</div>";
+
+                    suggestionBox.style.display =
+                        "block";
+
+
+
+                    try {
+
+
+                        /* =================================
+                           INDIA ONLY NOMINATIM API
+                        ================================= */
+
+                        const url =
+                            "https://nominatim.openstreetmap.org/search" +
+                            "?format=json" +
+                            "&addressdetails=1" +
+                            "&limit=5" +
+                            "&countrycodes=in" +
+                            "&q=" +
+                            encodeURIComponent(
+                                query
+                            );
+
+
+
+                        /* =================================
+                           API REQUEST
+                        ================================= */
+
+                        const response =
+                            await fetch(
+                                url,
+                                {
+                                    method: "GET",
+
+                                    headers: {
+                                        "Accept":
+                                            "application/json"
+                                    }
+                                }
+                            );
+
+
+
+                        /* =================================
+                           CHECK RESPONSE
+                        ================================= */
+
+                        if (
+                            !response.ok
+                        ) {
+
+                            throw new Error(
+                                "API Error: " +
+                                response.status
+                            );
+
+                        }
+
+
+
+                        const data =
+                            await response.json();
+
+
+
+                        suggestionBox.innerHTML =
+                            "";
+
+
+
+                        /* =================================
+                           NO RESULT
+                        ================================= */
+
+                        if (
+                            !data ||
+                            data.length === 0
+                        ) {
+
+                            suggestionBox.innerHTML =
+                                "<div class='no-location'>" +
+                                "No Indian location found" +
+                                "</div>";
+
+                            suggestionBox.style.display =
+                                "block";
+
+                            return;
+
+                        }
+
+
+
+                        /* =================================
+                           CREATE SUGGESTIONS
+                        ================================= */
+
+                        data.forEach(
+                            function (
+                                location
+                            ) {
+
+
+                                const item =
+                                    document.createElement(
+                                        "div"
+                                    );
+
+
+                                item.className =
+                                    "location-suggestion";
+
+
+                                item.innerText =
+                                    location.display_name;
+
+
+
+                                /* =========================
+                                   CLICK SUGGESTION
+                                ========================== */
+
+                                item.addEventListener(
+                                    "click",
+                                    function () {
+
+
+                                        input.value =
+                                            location.display_name;
+
+
+                                        input.dataset.lat =
+                                            location.lat;
+
+
+                                        input.dataset.lon =
+                                            location.lon;
+
+
+                                        suggestionBox.innerHTML =
+                                            "";
+
+
+                                        suggestionBox.style.display =
+                                            "none";
+
+                                    }
+                                );
+
+
+                                suggestionBox.appendChild(
+                                    item
+                                );
+
+                            }
+                        );
+
+
+                        suggestionBox.style.display =
+                            "block";
+
+
+                    }
+
+
+                    /* =================================
+                       ERROR
+                    ================================= */
+
+                    catch (
+                        error
+                    ) {
+
+
+                        console.log(
+                            "Location Search Error:",
+                            error
+                        );
+
+
+                        suggestionBox.innerHTML =
+                            "<div class='no-location'>" +
+                            "Location search temporarily unavailable. Please try again." +
+                            "</div>";
+
+
+                        suggestionBox.style.display =
+                            "block";
+
+                    }
+
+                }
+            );
+
+        }
+
+
+
+        /* =================================================
+           PICKUP SEARCH
+        ================================================= */
+
+        searchLocation(
+            pickupInput,
+            pickupSuggestions
+        );
+
+
+
+        /* =================================================
+           DROP SEARCH
+        ================================================= */
+
+        searchLocation(
+            dropInput,
+            dropSuggestions
+        );
+
+
+
+        /* =================================================
+           CLOSE SUGGESTIONS
+        ================================================= */
+
+        document.addEventListener(
+            "click",
+            function (
+                event
+            ) {
+
+
+                /* =========================================
+                   PICKUP
+                ========================================= */
+
+                if (
+                    pickupInput &&
+                    pickupSuggestions &&
+                    !pickupInput.contains(
+                        event.target
+                    ) &&
+                    !pickupSuggestions.contains(
+                        event.target
+                    )
+                ) {
+
+                    pickupSuggestions.style.display =
+                        "none";
+
+                }
+
+
+
+                /* =========================================
+                   DROP
+                ========================================= */
+
+                if (
+                    dropInput &&
+                    dropSuggestions &&
+                    !dropInput.contains(
+                        event.target
+                    ) &&
+                    !dropSuggestions.contains(
+                        event.target
+                    )
+                ) {
+
+                    dropSuggestions.style.display =
+                        "none";
+
+                }
+
+            }
+        );
+
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>

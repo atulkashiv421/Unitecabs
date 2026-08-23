@@ -1,0 +1,463 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="auth-page">
+
+    <div class="auth-card">
+
+        <!-- LOGO / ICON -->
+
+        <div class="auth-icon">
+            🚕
+        </div>
+
+
+        <!-- HEADING -->
+
+        <h1>
+            Welcome Back
+        </h1>
+
+        <p class="auth-subtitle">
+            Login to your Unite Cabs account
+        </p>
+
+
+        <!-- ERROR -->
+
+        {% if error %}
+
+            <div class="auth-error">
+                {{ error }}
+            </div>
+
+        {% endif %}
+
+
+        <!-- LOGIN FORM -->
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+
+            <!-- EMAIL -->
+
+            <div class="auth-field">
+
+                <label>
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    value="{{ request.POST.email|default:'' }}"
+                    required
+                >
+
+            </div>
+
+
+            <!-- PASSWORD -->
+
+            <div class="auth-field">
+
+                <label>
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    required
+                >
+
+            </div>
+
+
+            <!-- NEXT URL -->
+
+            <input
+                type="hidden"
+                name="next"
+                value="{{ next }}"
+            >
+
+
+            <!-- LOGIN BUTTON -->
+
+            <button
+                type="submit"
+                class="auth-btn"
+            >
+
+                Login
+
+            </button>
+
+        </form>
+
+
+        <!-- REGISTER -->
+
+        <div class="auth-bottom">
+
+            <p>
+                Don't have an account?
+            </p>
+
+            <a href="{% url 'register' %}">
+                Create Account
+            </a>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<style>
+
+/* =========================================
+   AUTH PAGE
+========================================= */
+
+.auth-page {
+
+    width: 100%;
+
+    min-height: 650px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 50px 20px;
+
+    box-sizing: border-box;
+
+    background: #f5f7fb;
+
+}
+
+
+/* =========================================
+   AUTH CARD
+========================================= */
+
+.auth-card {
+
+    width: 100%;
+
+    max-width: 420px;
+
+    background: #ffffff;
+
+    padding: 35px;
+
+    border-radius: 16px;
+
+    box-sizing: border-box;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.10);
+
+}
+
+
+/* =========================================
+   ICON
+========================================= */
+
+.auth-icon {
+
+    width: 65px;
+
+    height: 65px;
+
+    margin: 0 auto 15px;
+
+    border-radius: 50%;
+
+    background: #fff3e8;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 30px;
+
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.auth-card h1 {
+
+    text-align: center;
+
+    margin: 0;
+
+    font-size: 28px;
+
+    color: #0D1424;
+
+}
+
+
+/* =========================================
+   SUBTITLE
+========================================= */
+
+.auth-subtitle {
+
+    text-align: center;
+
+    color: #777;
+
+    font-size: 14px;
+
+    margin: 8px 0 25px;
+
+}
+
+
+/* =========================================
+   ERROR
+========================================= */
+
+.auth-error {
+
+    background: #ffe9e9;
+
+    color: #c62828;
+
+    border: 1px solid #ffcaca;
+
+    padding: 11px 12px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    margin-bottom: 18px;
+
+}
+
+
+/* =========================================
+   FIELD
+========================================= */
+
+.auth-field {
+
+    margin-bottom: 18px;
+
+}
+
+
+.auth-field label {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #333;
+
+}
+
+
+.auth-field input {
+
+    width: 100%;
+
+    height: 48px;
+
+    padding: 0 13px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    outline: none;
+
+    font-size: 14px;
+
+    box-sizing: border-box;
+
+    background: #fff;
+
+}
+
+
+.auth-field input:focus {
+
+    border-color: #ff7a00;
+
+    box-shadow:
+        0 0 0 2px rgba(255,122,0,0.10);
+
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.auth-btn {
+
+    width: 100%;
+
+    height: 48px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #ff7a00;
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+.auth-btn:hover {
+
+    background: #e96900;
+
+}
+
+
+/* =========================================
+   BOTTOM
+========================================= */
+
+.auth-bottom {
+
+    text-align: center;
+
+    margin-top: 23px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #eee;
+
+}
+
+
+.auth-bottom p {
+
+    display: inline;
+
+    color: #777;
+
+    font-size: 14px;
+
+}
+
+
+.auth-bottom a {
+
+    margin-left: 5px;
+
+    color: #ff7a00;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .auth-page {
+
+        min-height: 600px;
+
+        padding: 30px 15px;
+
+    }
+
+    .auth-card {
+
+        padding: 28px 20px;
+
+        border-radius: 13px;
+
+    }
+
+    .auth-card h1 {
+
+        font-size: 24px;
+
+    }
+
+}
+
+
+/* =========================================
+   SMALL PHONE
+========================================= */
+
+@media (max-width: 400px) {
+
+    .auth-page {
+
+        padding: 20px 12px;
+
+    }
+
+    .auth-card {
+
+        padding: 25px 16px;
+
+    }
+
+    .auth-icon {
+
+        width: 55px;
+
+        height: 55px;
+
+        font-size: 26px;
+
+    }
+
+    .auth-card h1 {
+
+        font-size: 22px;
+
+    }
+
+}
+
+</style>
+
+{% endblock %}
