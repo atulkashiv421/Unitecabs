@@ -8,7 +8,13 @@ SECRET_KEY = "django-insecure-your-secret-key"
 
 DEBUG = False
 
-ALLOWED_HOSTS = ["unitecabs.com", "www.unitecabs.com"]
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "unitecabs.com",
+    "www.unitecabs.com",
+    ".onrender.com",
+]
 
 # Installed Apps
 INSTALLED_APPS = [
