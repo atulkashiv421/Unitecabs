@@ -1,9 +1,19 @@
 from pathlib import Path
+import os
+import dj_database_url
 
-# Base Directory
+
+# =====================================================
+# BASE DIRECTORY
+# =====================================================
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Security
+
+# =====================================================
+# SECURITY
+# =====================================================
+
 SECRET_KEY = "django-insecure-your-secret-key"
 
 DEBUG = True
@@ -16,7 +26,11 @@ ALLOWED_HOSTS = [
     ".onrender.com",
 ]
 
-# Installed Apps
+
+# =====================================================
+# INSTALLED APPS
+# =====================================================
+
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -34,7 +48,11 @@ INSTALLED_APPS = [
     "payments",
 ]
 
-# Middleware
+
+# =====================================================
+# MIDDLEWARE
+# =====================================================
+
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -45,13 +63,24 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
+
+# =====================================================
+# URL CONFIGURATION
+# =====================================================
+
 ROOT_URLCONF = "cabbooking.urls"
 
-# Templates
+
+# =====================================================
+# TEMPLATES
+# =====================================================
+
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / "templates"],
+        "DIRS": [
+            BASE_DIR / "templates"
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -63,53 +92,109 @@ TEMPLATES = [
     },
 ]
 
+
+# =====================================================
+# WSGI
+# =====================================================
+
 WSGI_APPLICATION = "cabbooking.wsgi.application"
 
-# Database
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
-}
 
-# Password Validation
+# =====================================================
+# DATABASE
+# NEON POSTGRESQL
+# =====================================================
+
+DATABASE_URL = os.environ.get("DATABASE_URL")
+
+if DATABASE_URL:
+    DATABASES = {
+        "default": dj_database_url.parse(
+            DATABASE_URL,
+            conn_max_age=600,
+            ssl_require=True,
+        )
+    }
+
+else:
+    # Local fallback
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
+    }
+
+
+# =====================================================
+# PASSWORD VALIDATION
+# =====================================================
+
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+        "NAME": (
+            "django.contrib.auth.password_validation."
+            "UserAttributeSimilarityValidator"
+        ),
     },
     {
-        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+        "NAME": (
+            "django.contrib.auth.password_validation."
+            "MinimumLengthValidator"
+        ),
     },
     {
-        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
+        "NAME": (
+            "django.contrib.auth.password_validation."
+            "CommonPasswordValidator"
+        ),
     },
     {
-        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+        "NAME": (
+            "django.contrib.auth.password_validation."
+            "NumericPasswordValidator"
+        ),
     },
 ]
 
-# Language
+
+# =====================================================
+# LANGUAGE & TIMEZONE
+# =====================================================
+
 LANGUAGE_CODE = "en-us"
 
 TIME_ZONE = "Asia/Kolkata"
 
 USE_I18N = True
+
 USE_TZ = True
 
-# Static Files
+
+# =====================================================
+# STATIC FILES
+# =====================================================
+
 STATIC_URL = "/static/"
+
 STATIC_ROOT = BASE_DIR / "staticfiles"
+
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-# Media Files (Admin Upload Images)
+
+# =====================================================
+# MEDIA FILES
+# =====================================================
+
 MEDIA_URL = "/media/"
+
 MEDIA_ROOT = BASE_DIR / "media"
 
-# Default Primary Key
+
+# =====================================================
+# DEFAULT PRIMARY KEY
+# =====================================================
+
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-MEDIA_URL = "/media/"
-MEDIA_ROOT = BASE_DIR / "media"

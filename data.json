@@ -1,0 +1,19 @@
+[
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$U4uOosTtXvfG3H9HYHrEkH$I20Oq8FntyuoCNtHpcTfo8UGkkfeZae9fY9x8mHDyhg=",
+    "last_login": null,
+    "is_superuser": true,
+    "username": "nikhil",
+    "first_name": "",
+    "last_name": "",
+    "email": "unitecabs@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-08-23T09:14:25.717Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
