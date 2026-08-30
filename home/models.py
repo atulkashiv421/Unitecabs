@@ -1,5 +1,5 @@
-
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 
 class HeroSection(models.Model):
@@ -22,8 +22,8 @@ class HeroSection(models.Model):
         default="Anywhere"
     )
 
-    hero_image = models.ImageField(
-        upload_to="hero/"
+    hero_image = CloudinaryField(
+        "hero_image"
     )
 
     def __str__(self):
@@ -45,8 +45,8 @@ class Route(models.Model):
         decimal_places=2
     )
 
-    image = models.ImageField(
-        upload_to="routes/"
+    image = CloudinaryField(
+        "route_image"
     )
 
     is_active = models.BooleanField(
@@ -64,8 +64,8 @@ class HeroSlider(models.Model):
         blank=True
     )
 
-    image = models.ImageField(
-        upload_to="hero_slider/"
+    image = CloudinaryField(
+        "hero_slider_image"
     )
 
     is_active = models.BooleanField(
@@ -102,10 +102,6 @@ class ContactSettings(models.Model):
 
 class Booking(models.Model):
 
-    # =========================================
-    # TRIP TYPE
-    # =========================================
-
     TRIP_TYPES = (
         ("One Way", "One Way"),
         ("Round Trip", "Round Trip"),
@@ -116,10 +112,6 @@ class Booking(models.Model):
         choices=TRIP_TYPES
     )
 
-    # =========================================
-    # LOCATIONS
-    # =========================================
-
     pickup = models.CharField(
         max_length=200
     )
@@ -127,10 +119,6 @@ class Booking(models.Model):
     drop = models.CharField(
         max_length=200
     )
-
-    # =========================================
-    # PICKUP DATE & TIME
-    # =========================================
 
     pickup_date = models.DateField()
 
@@ -144,10 +132,6 @@ class Booking(models.Model):
         ),
         default="AM"
     )
-
-    # =========================================
-    # RETURN DATE & TIME
-    # =========================================
 
     return_date = models.DateField(
         null=True,
@@ -169,17 +153,9 @@ class Booking(models.Model):
         blank=True
     )
 
-    # =========================================
-    # CONTACT
-    # =========================================
-
     phone = models.CharField(
         max_length=15
     )
-
-    # =========================================
-    # BOOKING INFORMATION
-    # =========================================
 
     created_at = models.DateTimeField(
         auto_now_add=True
@@ -190,17 +166,9 @@ class Booking(models.Model):
         default="Pending"
     )
 
-    # =========================================
-    # DISPLAY
-    # =========================================
-
     def __str__(self):
         return f"{self.pickup} → {self.drop}"
 
-
-# =====================================================
-# LOGIN USERS
-# =====================================================
 
 class LoginUser(models.Model):
 
