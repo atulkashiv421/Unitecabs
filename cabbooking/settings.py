@@ -1,6 +1,7 @@
 from pathlib import Path
 import os
 import dj_database_url
+import cloudinary
 
 
 # =====================================================
@@ -38,7 +39,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+
+    # Cloudinary
     "cloudinary",
+
     # Custom Apps
     "home",
     "accounts",
@@ -117,7 +121,6 @@ if DATABASE_URL:
     }
 
 else:
-    # Local fallback
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
@@ -194,10 +197,20 @@ MEDIA_ROOT = BASE_DIR / "media"
 
 
 # =====================================================
+# CLOUDINARY
+# =====================================================
+
+CLOUDINARY_URL = os.environ.get("CLOUDINARY_URL")
+
+cloudinary.config(
+    cloud_name=os.environ.get("CLOUDINARY_CLOUD_NAME"),
+    api_key=os.environ.get("CLOUDINARY_API_KEY"),
+    api_secret=os.environ.get("CLOUDINARY_API_SECRET"),
+)
+
+
+# =====================================================
 # DEFAULT PRIMARY KEY
 # =====================================================
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-
-CLOUDINARY_URL = os.environ.get("CLOUDINARY_URL")
